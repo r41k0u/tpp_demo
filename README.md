@@ -1,18 +1,20 @@
-# Two Point Perspective Projection Demo
+# Perspective Projection Demo
 
 It was easy. I just pulled [OpenGL Tutorials](https://github.com/opengl-tutorials/ogl) and edited the *Colored Cube* tutorial to change the **View Matrix**.
 
 ### For Windows
 - Build the project using CMake
 - Open the Build directory
-- Open **Two_Point_Perspective_Colored_Cube.sln** in Visual Studio
-- Select **two_point_perspective** as startup project, and run it.
+- Open **Perspective_Colored_Cube.sln** in Visual Studio
+- Select **two_point_perspective** as startup project, and run it to see two point perspective.
+- Select **three_point_perspective** as startup project, and run it to see three point perspective.
 
 ### For Mac
 - Build the project using CMake
 - Open the Build directory
-- Open **Two_Point_Perspective_Colored_Cube.xcodeproj** in XCode
-- Select **two_point_perspective**, and run it.
+- Open **Perspective_Colored_Cube.xcodeproj** in XCode
+- Select **two_point_perspective**, and run it to see two point perspective.
+- Select **three_point_perspective**, and run it to see three point perspective.
 
 ### For Linux
 

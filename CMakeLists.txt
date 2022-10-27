@@ -1,6 +1,6 @@
 # CMake entry point
 cmake_minimum_required (VERSION 3.0)
-project (Two_Point_Perspective_Colored_Cube)
+project (Perspective_Colored_Cube)
 
 find_package(OpenGL REQUIRED)
 
@@ -71,6 +71,20 @@ target_link_libraries(two_point_perspective
 set_target_properties(two_point_perspective PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/two_point_perspective/")
 create_target_launcher(two_point_perspective WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/two_point_perspective/")
 
+add_executable(three_point_perspective
+	three_point_perspective/three_point_perspective.cpp
+	common/shader.cpp
+	common/shader.hpp
+
+	three_point_perspective/TransformVertexShader.vertexshader
+	three_point_perspective/ColorFragmentShader.fragmentshader
+)
+target_link_libraries(three_point_perspective
+	${ALL_LIBS}
+)
+# Xcode and Visual working directories
+set_target_properties(three_point_perspective PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/three_point_perspective/")
+create_target_launcher(three_point_perspective WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/three_point_perspective/")
 
 SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
 SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
@@ -80,6 +94,10 @@ if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
 add_custom_command(
    TARGET two_point_perspective POST_BUILD
    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/two_point_perspective${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/two_point_perspective/"
+)
+add_custom_command(
+   TARGET three_point_perspective POST_BUILD
+   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/three_point_perspective${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/three_point_perspective/"
 )
 
 elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
