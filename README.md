@@ -25,3 +25,8 @@ Building on Linux is a bit complicated. Please use an IDE like CLion or QT Creat
 [Here][def] is a blog by Pomax which illustrates how to implement 3 point perspective, and in the process implemented 2 point perspective as well. But thw **View Matrix** edit method was quite easy and did the worl just well.
 
 [def]: https://pomax.github.io/three-point-perspective/
+
+## Images
+
+![ Two Point Perspective ](/images/twopp.png "Two Point Perspective")
+![ Three Point Perspective ](/images/threepp.png "Three Point Perspective")
